@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molten Window Manager Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a2c2e2, #f3f4f6);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.75em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        pre {
+            background: rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #007bff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Molten Window Manager Documentation</h1>
+        <p>Welcome to the Molten Window Manager! This guide will help you set up and use the Molten Window Manager for creating interactive, draggable, and resizable windows in your web applications.</p>
+
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#basic-usage">Basic Usage</a></li>
+            <li><a href="#creating-a-new-window">Creating a New Window</a></li>
+            <li><a href="#customizing-windows">Customizing Windows</a></li>
+            <li><a href="#handling-window-minimization">Handling Window Minimization</a></li>
+            <li><a href="#full-example">Full Example</a></li>
+        </ul>
+
+        <h2 id="introduction">Introduction</h2>
+        <p>The Molten Window Manager enables you to create and manage draggable and resizable windows on your web pages. With this tool, you can customize window behavior, including minimizing, restoring, and setting window properties.</p>
+
+        <h2 id="installation">Installation</h2>
+        <p>Include the Molten Window Manager script in your HTML file using the following CDN link:</p>
+        <pre><code>&lt;script src="https://demonterminal.github.io/demon-moltenweb-window-manager/demonservice.js"&gt;&lt;/script&gt;</code></pre>
+
+        <h2 id="basic-usage">Basic Usage</h2>
+        <p>To create a window, use the `window.open` method provided by the Molten Window Manager. Here's a basic example:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Molten Window Manager&lt;/title&gt;
+    &lt;script src="https://demonterminal.github.io/demon-moltenweb-window-manager/demonservice.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="desktop"&gt;&lt;/div&gt;
+    &lt;div id="minimized-windows"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        const newWindow = window.open('https://example.com', 'My Window', 'width=400,height=300,icon=icon.png,winid=minimized-windows,target=_blank');
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2 id="creating-a-new-window">Creating a New Window</h2>
+        <p>Create a new window by calling the `window.open` function with the URL, name, and other parameters:</p>
+        <pre><code>const newWindow = window.open('https://example.com', 'My Window', 'width=400,height=300,icon=icon.png,winid=minimized-windows,target=_blank');</code></pre>
+
+        <h2 id="customizing-windows">Customizing Windows</h2>
+        <p>You can customize your window's appearance and behavior using the following parameters:</p>
+        <ul>
+            <li><strong>url</strong>: The URL to be loaded in the window.</li>
+            <li><strong>name</strong>: The title of the window.</li>
+            <li><strong>width</strong>: The initial width of the window.</li>
+            <li><strong>height</strong>: The initial height of the window.</li>
+            <li><strong>icon</strong>: The URL of the icon to display in the window header.</li>
+            <li><strong>winid</strong>: The ID of the element where minimized window icons will be placed.</li>
+            <li><strong>target</strong>: The target attribute (e.g., <code>_blank</code>, <code>_parent</code>).</li>
+        </ul>
+
+        <h2 id="handling-window-minimization">Handling Window Minimization</h2>
+        <p>When a window is minimized, an icon will appear in the element specified by the <code>winid</code> parameter. Clicking the icon will restore the window.</p>
+
+        <h2 id="full-example">Full Example</h2>
+        <p>Here's a full example showing how to create multiple windows with different properties:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Molten Window Manager&lt;/title&gt;
+    &lt;script src="https://demonterminal.github.io/demon-moltenweb-window-manager/demonservice.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="desktop"&gt;&lt;/div&gt;
+    &lt;div id="minimized-windows"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        // Open the first window
+        window.open('https://example.com', 'First Window', 'width=400,height=300,icon=icon.png,winid=minimized-windows,target=_blank');
+
+        // Open the second window with a different size
+        window.open('https://example.org', 'Second Window', 'width=600,height=400,icon=icon.png,winid=minimized-windows,target=_blank');
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p>This documentation will help you integrate and utilize the Molten Window Manager effectively in your web projects. Happy coding!</p>
+    </div>
+</body>
+</html>
